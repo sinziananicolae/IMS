@@ -1,8 +1,6 @@
 import os
 
 from flask import Flask, jsonify, render_template, request
-from wiki import *
-from sortedcontainers import SortedSet
 
 basedir = os.path.join(os.path.abspath(os.path.dirname(__file__)), '../../Client/')
 
