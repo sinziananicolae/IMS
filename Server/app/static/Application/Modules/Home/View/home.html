@@ -1,0 +1,32 @@
+﻿<div class="col-md-12" style="margin-top: 40px; display: inline-flex; padding-left: 39%">
+	<input class="form-control" style="width: 20%" data-ng-model="searchWord"/>
+	<button type="button" class="btn-primary" data-ng-click="getPeaksAndGraphDataForWord(searchWord)" style="margin-left: 20px">Search</button>
+</div>
+
+<div class="col-md-12 ">
+	<canvas id="line" name="lineChart" class="chart chart-line" data="data"
+	  labels="labels" legend="true" series="series" height="100"
+	  click="onClick" options="options" colours="colours">
+</canvas> 
+</div>
+
+<div class="col-md-8 ">
+	<table style="width:100%">
+	  <tr>
+	    <th>Year</th>
+	    <th>Start year left</th> 
+	    <th>Amplitude left</th>
+	    <th>End year right</th> 
+	    <th>Amplitude right</th>
+	  </tr>
+	  <tr ng-repeat="(year, value) in amplitudesForPeaksLeft">
+	    <td>{{year}}</td>
+	    <td>{{value.startYear}}</td> 
+	    <td>{{value.amplitude}}</td>
+	    <td>{{amplitudesForPeaksRight[year].startYear}}</td> 
+	    <td>{{amplitudesForPeaksRight[year].amplitude}}</td>
+	  </tr>
+	</table>
+</div>
+
+<events-info-modal></events-info-modal>
