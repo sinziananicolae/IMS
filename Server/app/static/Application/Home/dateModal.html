@@ -1,0 +1,63 @@
+﻿<div class="modal fade" id="dateModal" tabindex="-1" role="dialog"
+aria-labelledby="dateModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" style="width: 400px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel" ><span > Select the dates for your holiday </span></h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-2">
+                            From
+                        </div>
+                        <div class="input-group col-md-10">
+                           <input 
+                           type="text" 
+                           class="form-control" 
+                           id="startDate" 
+                           ng-model="startDate" 
+                           datepicker-popup="dd-MM-yyyy" 
+                           is-open="picker1.opened" 
+                           ng-click="picker1.opened=!picker1.opened">
+                           <span class="input-group-btn">
+                              <button type="button" class="btn btn-default" ng-click="picker1.opened=!picker1.opened;$event.stopPropagation();">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top:10px">
+                    <div class="col-md-12">
+                        <div class="col-md-2">
+                            To
+                        </div>
+                        <div class="input-group col-md-10">
+                           <input 
+                           type="text" 
+                           class="form-control" 
+                           id="endDate" 
+                           ng-model="endDate" 
+                           datepicker-popup="dd-MM-yyyy" 
+                           is-open="picker2.opened" 
+                           ng-click="picker2.opened=!picker2.opened">
+                           <span class="input-group-btn">
+                              <button type="button" class="btn btn-default" ng-click="picker2.opened=!picker2.opened;$event.stopPropagation();">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="clear:both;"></div>
+            <div class="modal-footer">
+                <a class="btn btn-green pull-right mr10" data-dismiss="modal" aria-hidden="true" ng-disabled="!startDate || !endDate">Select dates</a>
+            </div>
+        </div>
+    </div>
+</div>

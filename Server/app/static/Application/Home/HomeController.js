@@ -9,12 +9,9 @@
 
         $scope.map = { center: { latitude: 0, longitude: 0 }, zoom: 1 };
 
-       $( "#datepicker" ).datepicker({
-      showOn: "button",
-      buttonImage: "images/calendar.gif",
-      buttonImageOnly: true,
-      buttonText: "Select date"
-    });
+       setTimeout(function(){
+        $("#dateModal").modal('show');
+    }, 1000);
 
 
 
