@@ -32,6 +32,14 @@
                     time: date.getHours() + ":" + date.getMinutes()
                 };
 
+                if(data.places){
+                    chatItem.destination = {
+                        latitude: 52.507629,
+                        longitude: 13.1459636
+                    };
+                    $scope.map = { center: { latitude: chatItem.destination.latitude, longitude: chatItem.destination.longitude }, zoom: 9 };
+                }
+
                 $scope.chat.conversatioId = data.conversationId;
                 $scope.chat.items.push(chatItem);
             });
@@ -46,10 +54,11 @@
                 time: date.getHours() + ":" + date.getMinutes()
             };
             $scope.chat.items.push(chatItem);
-            
+
             dataToSend.message = userMessage;
             dataToSend.conversationId = $scope.chat.conversatioId;
             apiCall();
+            $scope.userMessage = "";
         }
        
     }
