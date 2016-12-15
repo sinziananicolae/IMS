@@ -1,12 +1,23 @@
 <div class="container" style="padding: 65px 0 20px 0" >
-    <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+    <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+        <ui-gmap-markers models="markers" coords="'self'" icon="'icon'" click="onClick">
+                <ui-gmap-windows show="show">
+                    <div ng-non-bindable>
+                        <b>{{title}}</b><br />
+                        {{description}} <br />
+                        {{status}} <br />
+                        {{price}}
+                    </div>
+                </ui-gmap-windows>
+            </ui-gmap-markers>
+    </ui-gmap-google-map>
     
     <div class="row">
         <div class="menu">
             <div class="name">Holiday Planner</div>
         </div>
         
-        <ol class="chat">
+        <ol class="chat" id="chatDiv">
             <li ng-repeat="chatItem in chat.items" ng-class="{1: 'other', 2: 'self'}[chatItem.type]">
                 <div class="avatar"><img src="http://i.imgur.com/DY6gND0.png" draggable="false"/></div>
                 <div class="msg">
@@ -15,7 +26,8 @@
                 </div>
             </li>
     </ol>
-    <input class="textarea" type="text" placeholder="Type here!" ng-model="userMessage" ng-keydown="$event.which === 13 && sendMessage(userMessage)"/><div class="emojis"></div>
+    <input class="textarea" type="text" placeholder="Type here!" ng-model="userMessage" ng-keydown="$event.which === 13 && sendMessage(userMessage, 1)"/><div class="emojis"></div>
 </div>
 
 <date-modal></date-modal>
+<subcategory-modal></date-modal>

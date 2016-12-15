@@ -21,5 +21,12 @@
                 scope: false,
                 templateUrl: "Application/Home/dateModal.html"
             }
+        }])
+    .directive("subcategoryModal", [function () {
+            return {
+                restrict: "E",
+                scope: false,
+                templateUrl: "Application/Home/subcategoryModal.html"
+            }
         }]);
 }());

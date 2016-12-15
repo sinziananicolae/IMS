@@ -1,0 +1,26 @@
+<div class="modal fade" id="subcategoryModal" tabindex="-1" role="dialog"
+aria-labelledby="subcategoryModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" style="width: 400px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel" ><span > Select a subcategory </span></h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-md-12" ng-repeat="subcategory in subcategories">
+                        <label>
+                          <input type="radio" ng-model="$parent.subcategorySelected" value="{{subcategory}}">
+                           {{subcategory}}
+                        </label><br/>
+                    </div>
+                </div>
+            </div>
+
+            <div style="clear:both;"></div>
+            <div class="modal-footer">
+                <a class="btn btn-success pull-right mr10" data-dismiss="modal" aria-hidden="true" ng-disabled="!subcategorySelected" ng-click="sendSubcategory(subcategorySelected)">Ok</a>
+            </div>
+        </div>
+    </div>
+</div>
