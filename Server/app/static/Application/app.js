@@ -7,6 +7,8 @@
         'ngResource',
         'ngAnimate',
         'ui.bootstrap',
+        'services',
+        'directives',
         'uiGmapgoogle-maps'
     ]).config(["$routeProvider", function($routeProvider) {
 	    $routeProvider

@@ -1,17 +1,12 @@
 import os
 
 from flask import Flask, jsonify, render_template, request
+from flask_cors import CORS, cross_origin
 
 basedir = os.path.join(os.path.abspath(os.path.dirname(__file__)), '../../Client/')
 
 app = Flask(__name__, static_url_path='')
-
-@app.after_request
-def after_request(response):
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
-    return response
+CORS(app)
 
 @app.route("/")
 def index():
