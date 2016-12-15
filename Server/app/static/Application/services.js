@@ -12,6 +12,6 @@ var serviceMetods = {
 
     angular.module("services", ["ngResource"])
         .factory("ChatService", ["$resource", function ($resource) {
-            return $resource("https://damp-plateau-16338.herokuapp.com/api/conversation", {}, serviceMetods);
+            return $resource("http://127.0.0.1:8594/api/conversation", {}, serviceMetods);
         }]);
 }())
