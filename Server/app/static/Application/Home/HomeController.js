@@ -61,6 +61,10 @@
                     });
                 }
 
+                if(data.weather) {
+                    chatItem.weather = data.weather;
+                }
+
                 $scope.chat.conversatioId = data.conversationId;
                 $scope.chat.items.push(chatItem);
                 setTimeout(function(){$("#chatDiv").animate({scrollTop: "1000000px"}, 1000);}, 200);
@@ -81,13 +85,18 @@
             dataToSend.message = userMessage;
             dataToSend.conversationId = $scope.chat.conversatioId;
             dataToSend.type = type === 1 ? "conversation" : "subcategory";
+
+            if(userMessage.indexOf('weather') >= 0) {
+                dataToSend.type = 'weather';
+            }
+
             apiCall();
             $scope.userMessage = "";
         }
 
         $scope.parseDates = function(startDate, endDate) {
-            var message = "from " + months[startDate.getMonth()] + ' ' + startDate.getDay() + ' ' + startDate.getFullYear() + ' to '
-                + months[endDate.getMonth()] + ' ' + endDate.getDay() + ' ' + endDate.getFullYear();
+            var message = "from " + months[startDate.getMonth()] + ' ' + startDate.getDate() + ' ' + startDate.getFullYear() + ' to '
+                + months[endDate.getMonth()] + ' ' + endDate.getDate() + ' ' + endDate.getFullYear();
             $scope.sendMessage(message, 1);
         }
 

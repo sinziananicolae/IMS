@@ -19,9 +19,26 @@
         
         <ol class="chat" id="chatDiv">
             <li ng-repeat="chatItem in chat.items" ng-class="{1: 'other', 2: 'self'}[chatItem.type]">
-                <div class="avatar"><img src="http://i.imgur.com/DY6gND0.png" draggable="false"/></div>
+                <div class="avatar"><img ng-src="{{chatItem.type == 1 ? 'css/images/avatar_new.png' : 'css/images/download.png'}}" draggable="false"/></div>
                 <div class="msg">
                     <p>{{chatItem.message}}</p>
+                    <table class="table" ng-if="chatItem.weather">
+                        <thead>
+                          <tr>
+                            <th ng-repeat="day in chatItem.weather">{{day.date.day}}/{{day.date.month + 1}}/{{day.date.year}}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td ng-repeat="day in chatItem.weather">
+                                <img ng-src="css/images/{{day.type}}.png" style="width: 50px"></img>
+                                <span>{{day.summary}}</span>
+                                <div>Min temperature:{{day.minTemperature}}°C</div>
+                                <div>Max temperature:{{day.maxTemperature}}°C</div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     <time>{{chatItem.time}}</time>
                 </div>
             </li>
