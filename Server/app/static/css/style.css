@@ -336,3 +336,7 @@ input.textarea {
 }
 
 .angular-google-map-container { height: 250px; }
+
+.table {
+    width: auto !important;
+}

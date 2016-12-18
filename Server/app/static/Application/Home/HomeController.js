@@ -55,8 +55,9 @@
                             title: place.name,
                             description: place.address,
                             status: place.status,
-                            price: place.price,
-                            show: false
+                            price: place.price !== 'NONE' ? place.price : "",
+                            show: false,
+                            icon: place.status === 'OPENED' ? 'https://maps.google.com/mapfiles/ms/icons/green-dot.png' : 'https://maps.google.com/mapfiles/ms/icons/red-dot.png'
                         });
                     });
                 }
