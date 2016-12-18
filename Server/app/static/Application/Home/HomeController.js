@@ -45,7 +45,7 @@
                     $("#subcategoryModal").modal('show');
                 }
 
-                if(data.places && data.places.length > 0) {
+                if(data.places && data.places.length > 1) {
                     $scope.markers = [];
                     _.each(data.places, function(place, index) {
                         $scope.markers.push({

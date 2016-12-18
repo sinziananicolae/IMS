@@ -20,7 +20,7 @@
         <ol class="chat" id="chatDiv">
             <li ng-repeat="chatItem in chat.items" ng-class="{1: 'other', 2: 'self'}[chatItem.type]">
                 <div class="avatar"><img ng-src="{{chatItem.type == 1 ? 'css/images/avatar_new.png' : 'css/images/download.png'}}" draggable="false"/></div>
-                <div class="msg" stlyle="overflow-x: auto;">
+                <div class="msg" style="overflow-x: auto;">
                     <p>{{chatItem.message}}</p>
                     <table class="table" ng-if="chatItem.weather">
                         <thead>
